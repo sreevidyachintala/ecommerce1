@@ -1,0 +1,19 @@
+{% extends 'store/main.html' %}
+
+
+{% block title %}Logout page{% endblock title %}
+
+{% block content %}
+
+	<div class="container">
+
+		<div>
+			<h2>logged out</h2>
+			<h2>Are you sure you want to login </h2><a href="{% url 'log' %}">Login again</a>
+		</div>
+		
+
+	</div>
+	
+	
+{%endblock content %}

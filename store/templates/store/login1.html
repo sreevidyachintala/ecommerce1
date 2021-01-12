@@ -1,0 +1,57 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    {% if messages %}
+        {% for j in messages %}
+        <div class="alert alert-{{j.tags}} alert-dismissible">
+            {{j}}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            
+            
+        </div>
+        {% endfor %}
+        {% endif %}
+	<div  class="p-4 m-4">
+		<div class="col-lg-4 mt-4 border mb-4 mx-auto rounded pt-4">
+			<div class="text-center col">
+            
+                
+            <div class="display-5">LoginHere</div>
+            <hr>
+            </div>
+			<h3 hidden class="alert alert-light border mt-4 mb-4 rounded">Login Here</h3>
+			<form method="post">
+				{% csrf_token %}
+				<!-- {{form.as_p}} -->
+				<div class="form-group">
+                    <label for="">Username</label>
+                    <input required type="text" name="username" id=""
+                    value="{{user.username}}" 
+                    class=" form-control-sm form-control" placeholder="enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input required type="password" name="password" id=""
+                    value="{{user.password}}" 
+                    class=" form-control-sm form-control" placeholder="********">
+                </div>
+                <hr>
+                <div class="form-group">
+                    <input class="btn btn-sm btn-info col-lg-4" type="submit" value="Login">
+                </div>
+                <div class="form-group">
+                    <a href="{% url 'signup' %}">CreateLogin/New User</a>
+                </div>
+
+
+			</form>
+		</div>
+	</div>
+	
+	</div>
+	
+
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+	<div class="card">
+		<form method="post">
+			{% csrf_token %}
+			<div class="card-header">AddProduct</div>
+
+				<div class="card-body">
+					<label for="pname"></label>
+					<input type="text" placeholder="enter product name" class="form-control" name="pname">
+					<label for="price"></label>
+					<input type="number" placeholder="enter price" class="form-control" name="price">
+					<label for="digital"></label>
+					<input type="text" placeholder="enter digital...." class="form-control" name="digital">
+					<label for="image"></label>
+					<input type="file" placeholder="enter image link" class="form-control" name="image">
+
+				</div>
+					<div class="card-footer">
+					<input type="submit" value="Add" class="btn btn-outline-primary">
+				</div>
+			
+	
+		</form>
+		
+	</div>
+	</div>
+	
+
+{% endblock content %}

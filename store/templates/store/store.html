@@ -1,0 +1,33 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+		{% if messages %}
+		{% for j in messages %}
+		<div class="alert alert-{{j.tags}} alert-dismissible">
+			{{j}}
+  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+  			
+  			
+		</div>
+		{% endfor %}
+		{% endif %}
+	{% for product in products %}
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.image.url}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+				
+				<a href="{% url 'cart' %}" class="btn btn-outline-primary add-btn">Add to Cart</a>
+				<!-- <a class="btn btn-outline-success" href="{% url 'v28' %}">View</a> -->
+				
+				<h4 style="display: inline-block; float: right"><strong>{{product.price}}/-</strong></h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+{% endblock content %}
